@@ -18,8 +18,8 @@ searchTwo (l:ls) (r:rs)
 combiThree ls =
   [[x, y, z] | x <- ls, y <- ls, z <- ls, x < y, y < z]
 
-filterThree ls =
-  foldr (*) 1 $ concat $ filter (\x -> sum x == 2020) ls
+filterThree =
+  foldr (*) 1 . concat . filter ((2020 ==) . sum)
 
 main = do
   input <- fmap lines (readFile "input.txt")
